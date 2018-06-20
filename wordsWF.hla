@@ -1,0 +1,171 @@
+program wordsWF;
+#include( "stdlib.hhf" );
+	
+procedure wwf( myCharacter : byte ); @nodisplay; @noframe;
+
+begin wwf;
+	mov(AL, myCharacter);
+	
+	//these check for whether the character's value is 1
+	cmp(myCharacter, $41);
+	je valueOne;
+	cmp(myCharacter, $61);
+	je valueOne;
+	cmp(myCharacter, $45);
+	je valueOne;
+	cmp(myCharacter, $65);
+	je valueOne;
+	cmp(myCharacter, $49);
+	je valueOne;
+	cmp(myCharacter, $69);
+	je valueOne;
+	cmp(myCharacter, $4F);
+	je valueOne;
+	cmp(myCharacter, $6F);
+	je valueOne;
+	cmp(myCharacter, $52);
+	je valueOne;
+	cmp(myCharacter, $72);
+	je valueOne;
+	cmp(myCharacter, $53);
+	je valueOne;
+	cmp(myCharacter, $73);
+	je valueOne;
+	cmp(myCharacter, $54);
+	je valueOne;
+	cmp(myCharacter, $74);
+	je valueOne;
+	
+	//these check for whether the character's value is 2
+	cmp(myCharacter, $44);
+	je valueTwo;
+	cmp(myCharacter, $64);
+	je valueTwo;
+	cmp(myCharacter, $4C);
+	je valueTwo;
+	cmp(myCharacter, $6C);
+	je valueTwo;
+	cmp(myCharacter, $4E);
+	je valueTwo;
+	cmp(myCharacter, $6E);
+	je valueTwo;
+	cmp(myCharacter, $55);
+	je valueTwo;
+	cmp(myCharacter, $75);
+	je valueTwo;
+	
+	//these check for whether the character's value is 3
+	cmp(myCharacter, $47);
+	je valueThree;
+	cmp(myCharacter, $67);
+	je valueThree;
+	cmp(myCharacter, $48);
+	je valueThree;
+	cmp(myCharacter, $68);
+	je valueThree;
+	cmp(myCharacter, $59);
+	je valueThree;
+	cmp(myCharacter, $79);
+	je valueThree;
+	
+	//these check for whether the character's value is 4
+	cmp(myCharacter, $42);
+	je valueFour;
+	cmp(myCharacter, $62);
+	je valueFour;
+	cmp(myCharacter, $43);
+	je valueFour;
+	cmp(myCharacter, $63);
+	je valueFour;
+	cmp(myCharacter, $46);
+	je valueFour;
+	cmp(myCharacter, $66);
+	je valueFour;
+	cmp(myCharacter, $4D);
+	je valueFour;
+	cmp(myCharacter, $6D);
+	je valueFour;
+	cmp(myCharacter, $50);
+	je valueFour;
+	cmp(myCharacter, $70);
+	je valueFour;
+	cmp(myCharacter, $57);
+	je valueFour;
+	cmp(myCharacter, $77);
+	je valueFour;
+	
+	//these check for whether the character's value is 5
+	cmp(myCharacter, $4B);
+	je valueFive;
+	cmp(myCharacter, $6B);
+	je valueFive;
+	cmp(myCharacter, $56);
+	je valueFive;
+	cmp(myCharacter, $76);
+	je valueFive;
+	
+	//these check for whether the character's value is 8
+	cmp(myCharacter, $58);
+	je valueEight;
+	cmp(myCharacter, $78);
+	je valueEight;
+	
+	//these check for whether the character's value is 10
+	cmp(myCharacter, $4A);
+	je valueTen;
+	cmp(myCharacter, $6A);
+	je valueTen;
+	cmp(myCharacter, $51);
+	je valueTen;
+	cmp(myCharacter, $71);
+	je valueTen;
+	cmp(myCharacter, $5A);
+	je valueTen;
+	cmp(myCharacter, $7A);
+	je valueTen;
+	
+	valueOne: //if the value is 1, moves that value into the AX register
+	mov(1,AX);
+	jmp valueEnd;
+	
+	valueTwo: //if the value is 2, moves that value into the AX register
+	mov(2,AX);
+	jmp valueEnd;
+	
+	valueThree: //if the value is 3, moves that value into the AX register
+	mov(3,AX);
+	jmp valueEnd;
+	
+	valueFour: //if the value is 4, moves that value into the AX register
+	mov(4,AX);
+	jmp valueEnd;
+	
+	valueFive: //if the value is 5, moves that value into the AX register
+	mov(5,AX);
+	jmp valueEnd;
+	
+	valueEight: //if the value is 8, moves that value into the AX register
+	mov(8,AX);
+	jmp valueEnd;
+	
+	valueTen: //if the value is 10, moves that value into the AX register
+	mov(10,AX);
+	jmp valueEnd;
+	
+	valueEnd: 
+	ret();
+	
+end wwf;
+
+begin wordsWF;
+
+stdout.put("Feed Me: ");
+stdin.getc(); //character is placed into AL so the procedure can use it
+
+call wwf; //calls the procedure
+
+stdout.put("In Words With Friends, that's ");
+stdin.flushInput();
+stdout.puti16(AX); //gets the value from the AX register
+
+end wordsWF;
